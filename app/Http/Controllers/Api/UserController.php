@@ -30,9 +30,9 @@ class UserController extends Controller
                 return $user;
             } else {
                 return response()->json([
-                    'status' => 203,
+                    'status' => 401,
                     'message' => 'Usuario/Contraseña incorrecta'
-                ], 203);
+                ], 401);
             }
         }
 
