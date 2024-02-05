@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function postLogin(Request $request){
         $validator = Validator::make($request->all(), [
-            'username' => 'required|email|max:255',
+            'email' => 'required|email|max:255',
             'password' => 'required'
         ]);
 
@@ -23,7 +23,7 @@ class UserController extends Controller
             ], 500);
         }
 
-        $user = User::where('email', $request->input('username'))->first();
+        $user = User::where('email', $request->input('email'))->first();
         
         if ($user) {
             if (Hash::check($request->input('password'), $user->password)) {
